@@ -1,24 +1,23 @@
 page-home {
-
+    h1, h2, h3, h4, h5, h6{
+        color: white;
+        text-shadow: black 2px 1px;
+    }
+    
+    hr{
+        color: black;
+        padding: 2px;
+    }
+    
+    p{
+        color: white;
+        text-shadow: black 1px 1px;
+    }
+    
+    .background{
+        background: url("../../assets/imgs/background.jpg") fixed center no-repeat;
+        background-size: cover;
+        height: max-content;
+    }
 }
 
-h1, h2, h3, h4, h5, h6{
-    color: white;
-    text-shadow: black 2px 1px;
-}
-
-hr{
-    color: black;
-    padding: 2px;
-}
-
-p{
-    color: white;
-    text-shadow: black 1px 1px;
-}
-
-.background{
-    background: url("../../assets/imgs/background.jpg") fixed center no-repeat;
-    background-size: cover;
-    height: 200%;
-}
