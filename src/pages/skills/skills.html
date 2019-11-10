@@ -5,11 +5,42 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar>
-    <ion-title>skills</ion-title>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Skills</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+  <div *ngIf="skills">
+    <div *ngFor="let skill of skills" style="text-align: center;">
+      <ion-card>
+        <img padding src="{{baseUrl + skill.image}}" style="margin-top: 50px;"/>
+        <div class="card-title">{{skill.name}}</div>
+        <div class="card-subtitle">Proficiency: </div>
+        <div class="card-subsubtitle">
+            <ionic3-star-rating
+            activeIcon = "ios-star"
+            defaultIcon = "ios-star-outline"
+            halfIcon = "ios-star-half"
+            halfStar = "true"
+            maxRating = "5"
+            activeColor = "#D4AF37" 
+            defaultColor = "#f4f4f4"
+            readonly="true"
+            rating="{{0.5 * skill.proficiency}}">
+          </ionic3-star-rating>
+        </div>
+        <button ion-button full *ngIf="skill.cert" (click)="skillSelect(event, skill)">More</button>
+      </ion-card>
+    </div>
+  </div> 
+  <div *ngIf="errMess">
 
+  </div> 
+  <div *ngIf="!errMess && !skills">
+    <ion-spinner></ion-spinner>
+  </div>
 </ion-content>

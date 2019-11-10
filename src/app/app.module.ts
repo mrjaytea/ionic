@@ -13,6 +13,8 @@ import { SkillsPage } from '../pages/skills/skills';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { StarRatingModule } from 'ionic3-star-rating';
+
 import { AboutmeProvider } from '../providers/aboutme/aboutme';
 import { SkillsProvider } from '../providers/skills/skills';
 import { QualificationsProvider } from '../providers/qualifications/qualifications';
@@ -34,6 +36,7 @@ import baseUrl from '../shared/baseUrl'
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
+    StarRatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
