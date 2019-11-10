@@ -42,6 +42,17 @@
     <p>
         A strong believer of <strong>"Teamwork makes dream work"</strong> and <strong>"There is no 'I' in the word 'team'."</strong> Also, in Chinese, 團結實是力量.
     </p>
+  </div>
+
+  <div *ngIf="errMess">
+    {{errMess}}
+  </div>
+  
+  <div *ngIf="!about && !errMess">
+    <ion-spinner></ion-spinner>
+  </div>
+
+
     <hr/>
     <h3>Hobbies</h3>
     <div *ngIf="hobbies">
@@ -51,28 +62,24 @@
               <ion-avatar item-start>
                 <img src="{{baseUrl + hobby.image}}" alt="{{hobby.name}}">
               </ion-avatar>
-              <ion-label>
+              <ion-label text-wrap>
                 <h2><strong>{{hobby.name}}</strong></h2>
                 <p>{{hobby.description}}</p>
               </ion-label>
             </ion-item>
           </ion-list>
       </div>
+    </div>
+
       <div *ngIf="errMess">
-          {{errMess}}
-        </div>
+        {{errMess}}
+      </div>
       
       <div *ngIf="!hobbies && !errMess">
         <ion-spinner></ion-spinner>
       </div>
-    </div>
-  </div>
+    
+  
 
-  <div *ngIf="errMess">
-    {{errMess}}
-  </div>
-
-  <div *ngIf="!about && !errMess">
-    <ion-spinner></ion-spinner>
-  </div>
+ 
 </ion-content>

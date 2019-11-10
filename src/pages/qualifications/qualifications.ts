@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { QualificationsProvider } from '../../providers/qualifications/qualifications'
+import { Qualifications } from '../../shared/qualifications'
+import { baseUrl } from '../../shared/baseUrl';
 
 /**
  * Generated class for the QualificationsPage page.
@@ -13,13 +16,23 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   selector: 'page-qualifications',
   templateUrl: 'qualifications.html',
 })
-export class QualificationsPage {
+export class QualificationsPage implements OnInit
+ {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  qualifications: Qualifications[];
+  errMess: string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private qualificationsService: QualificationsProvider, @Inject('baseUrl') private baseUrl) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad QualificationsPage');
+  }
+
+  ngOnInit() {
+    this.qualificationsService.getQualifications()
+      .subscribe(quali => this.qualifications = quali,
+        err => this.errMess = err);
   }
 
 }
