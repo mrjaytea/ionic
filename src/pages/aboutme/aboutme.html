@@ -71,15 +71,23 @@
       </div>
     </div>
 
-      <div *ngIf="errMess">
-        {{errMess}}
-      </div>
-      
-      <div *ngIf="!hobbies && !errMess">
-        <ion-spinner></ion-spinner>
-      </div>
+    <div *ngIf="errMess">
+      {{errMess}}
+    </div>
     
-  
-
- 
+    <div *ngIf="!hobbies && !errMess">
+      <ion-spinner></ion-spinner>
+    </div>
 </ion-content>
+
+<ion-footer>
+  <ion-fab right bottom>
+    <button ion-fab color="primary"><ion-icon name="arrow-dropup"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="secondary"><ion-icon name="logo-facebook" color="tertiary"></ion-icon></button>
+      <button ion-fab color="secondary"><ion-icon name="logo-twitter" color="tertiary"></ion-icon></button>
+      <button ion-fab color="secondary"><ion-icon name="logo-googleplus" color="tertiary"></ion-icon></button>
+      <button ion-fab color="secondary"><ion-icon name="mail" color="tertiary"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-footer>

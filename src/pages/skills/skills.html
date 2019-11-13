@@ -33,7 +33,7 @@
             rating="{{0.5 * skill.proficiency}}">
           </ionic3-star-rating>
         </div>
-        <button ion-button full *ngIf="skill.cert" (click)="skillSelect(event, skill)">More</button>
+        <button ion-button full *ngIf="skill.cert" (click)="skillSelect($event, skill)">More</button>
       </ion-card>
     </div>
   </div> 
@@ -44,3 +44,15 @@
     <ion-spinner></ion-spinner>
   </div>
 </ion-content>
+
+<ion-footer>
+  <ion-fab right bottom>
+    <button ion-fab color="primary"><ion-icon name="arrow-dropup"></ion-icon></button>
+    <ion-fab-list side="top">
+      <button ion-fab color="secondary"><ion-icon name="logo-facebook" color="tertiary"></ion-icon></button>
+      <button ion-fab color="secondary"><ion-icon name="logo-twitter" color="tertiary"></ion-icon></button>
+      <button ion-fab color="secondary"><ion-icon name="logo-googleplus" color="tertiary"></ion-icon></button>
+      <button ion-fab color="secondary"><ion-icon name="mail" color="tertiary"></ion-icon></button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-footer>

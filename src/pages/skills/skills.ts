@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Skills } from '../../shared/skills';
 import { SkillsProvider } from '../../providers/skills/skills'
+import { SkillPage } from '../skill/skill';
 import baseUrl from '../../shared/baseUrl'
 
 /**
@@ -22,7 +23,7 @@ export class SkillsPage implements OnInit {
   skill: Skills;
   errMess: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private skillsService: SkillsProvider, @Inject('baseUrl') private baseUrl) {
+  constructor(public navCtrl: NavController, private skillsService: SkillsProvider, @Inject('baseUrl') private baseUrl) {
   }
 
   ionViewDidLoad() {
@@ -33,6 +34,14 @@ export class SkillsPage implements OnInit {
     this.skillsService.getSkills()
       .subscribe((skills) => this.skills = skills,
       (error) => this.errMess = error)
+  }
+
+  skillSelect(event, skill){
+    this.navCtrl.push(
+      SkillPage, {
+        skill: skill
+      }
+    );
   }
 
 }
